@@ -1,5 +1,10 @@
 # Workshop ES6
 
+## installing and running the tests
+
+`npm install`
+`npm test`
+
 - modules
   - import expect
   - export functions from index.js
