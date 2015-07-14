@@ -13,8 +13,12 @@ var square = function (x) {
 };
 
 // Number -> Void
-var asyncSquare = function (x, callback) {
+export function asyncSquare(coll, callback) {
+  var result = [];
 
+  return function () {
+    return result;
+  }
 };
 
 // String -> String

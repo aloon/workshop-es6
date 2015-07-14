@@ -1,4 +1,4 @@
-import {add, sum, fakePost} from "../src/index.js";
+import {asyncSquare} from "../src/index";
 import expect from "expect";
 
 xdescribe("#add", function () {
@@ -19,8 +19,8 @@ xdescribe("#sum", function () {
 
 xdescribe("#dedupe", () => {
   it("should return a list with no duplicates", () => {
-    dedupe([1, 1, 1, 3, 1, 6, 7, 7, 6]).toEqual([1, 3, 6, 7]);
-    dedupe([2, 3, 4, 2, 3, 4, 2, 3, 4]).toEqual([2, 3, 4]);
+    expect(dedupe([1, 1, 1, 3, 1, 6, 7, 7, 6])).toEqual([1, 3, 6, 7]);
+    expect(dedupe([2, 3, 4, 2, 3, 4, 2, 3, 4])).toEqual([2, 3, 4]);
   });
 });
 
@@ -34,12 +34,14 @@ xdescribe("#hello", () => {
   });
 });
 
-xdescribe("#square", () => {
-  it("should square the value passed in", () => {
-    expect(square(3)).toEqual(9);
-    expect(square(9)).toEqual(81);
-    expect(square(-2)).toEqual(4);
-    expect(square(0)).toEqual(0);
+xdescribe("#asyncSquare", () => {
+  it("should eventually square a list of numbers", (done) => {
+    var result = asyncSquare([1, 2, 3, 4, 5]);
+    
+    setTimeout(function () {
+      expect(result()).toEqual([1, 4, 9, 16, 25]);
+      done();
+    }, 80);
   });
 });
 
