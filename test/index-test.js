@@ -1,6 +1,3 @@
-import {asyncSquare} from "../src/index";
-import expect from "expect";
-
 xdescribe("#add", function () {
   it("should be able to add two numbers together", () => {
     expect(add(1, 1)).toEqual(2);
@@ -63,6 +60,13 @@ xdescribe("#fakePost", () => {
       expect(err instanceof Error).toEqual(true);
       done();
     });
+  });
+});
+
+xdescribe("Duck", () => {
+  it("should be able to quack and tell us its name", () => {
+    var duck = new Duck("Dolan");
+    expect(duck.quack()).toEqual("Quack! My name is Dolan the duck.");
   });
 });
 

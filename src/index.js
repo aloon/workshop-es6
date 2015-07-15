@@ -34,3 +34,7 @@ var fakePost = function (url, data, onSuccess, onError) {
 var dedupe = function (collection) {
 
 };
+
+var Duck = function () {
+
+};
